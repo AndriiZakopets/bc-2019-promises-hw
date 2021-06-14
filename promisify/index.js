@@ -15,15 +15,11 @@
 
 export default function promisify(fn) {
   return function (...args) {
-    try {
-      return new Promise((resolve, reject) => {
-        fn(...args, (error, result) => {
-          if (error) reject(error);
-          resolve(result);
-        });
+    return new Promise((resolve, reject) => {
+      fn(...args, (error, result) => {
+        if (error) reject(error);
+        resolve(result);
       });
-    } catch (error) {
-      throw error;
-    }
+    });
   };
 }

@@ -6,7 +6,5 @@
  */
 
 export default function firstPromise(promises) {
-  return new Promise(function(resolve, reject) {
-    // TODO: implement
-  });
-};
+  return Promise.race(promises);
+}
